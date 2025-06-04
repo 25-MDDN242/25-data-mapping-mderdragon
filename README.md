@@ -4,4 +4,4 @@
 
 My AI camera is inspired by a small bit of AI prompting showcased by Byron [insert last name] in his lecture "lecture name" for DSDN221 at Te Herenga Waka - Victoria University of Wellington. This involved taking a photo of the atrium at Te Aro Campus and prompting the AI to turn it into an overgrown, green space. I decided I wanted to apply this concept to this assignment by building a filter that resembles growing vines and greenery to be pasted over a recognisable aspect of an urban environment. Initially I thought of using pictures roads in rural places but felt this was an unoriginal and overdone idea. Instead I turned to photos of city skylines and skyscrapers. I was worried the AI would find these difficult to identify as there can be so much variation in buildings but it did surprisingly well and I only ended up running two sets of images through training before I was completely satisfied with the results.
 
-I rendered my initial images with Pheobe Zeller's 3 layer halo code as a starting point.
+I rendered my initial images with Pheobe Zeller's 3 layer halo code, and some basic pointilism as a starting point.
