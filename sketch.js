@@ -1,10 +1,11 @@
 let sourceImg=null;
 let maskImg=null;
+let curLayer = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,12 +23,14 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
   textImg.loadPixels();
+  colorMode(HSB);
 }
 
 let X_STOP = 1920;
 let Y_STOP = 1080;
 
 let renderCounter=0;
+
 function draw () {
   let num_lines_to_draw = 40;
   // get one scanline
@@ -40,8 +43,18 @@ function draw () {
       let mask = maskImg.get(i, j);
       let tex = textImg.get(i, j);
 
+       colorMode(HSB, 360, 100, 100);
+      // draw a "dimmed" version in gray
+      let h = hue(col);
+      let s = saturation(col);
+      let b = brightness(col);
+
       if(mask[0] < 128) {
-        set(i, j, pix);
+        let new_sat = map(s, 0, 100, 20, 100);
+        let new_brt = map(b, 0, 100, 10, 100);
+        let new_hue = map(h, 0, 360, 150, 170);
+        let new_col = color(new_hue, new_sat, new_brt);
+        set(i, j, new_col);
       }
       else {
         let new_col = [0, 0, 0, 255];
@@ -66,7 +79,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-  //saveArtworkImage(outputFile);
+//saveArtworkImage(outputFile);
   }
 }
 
